@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>{{ search_title }}</h3>
+<button class="button button-outline" onclick="window.location.href = '/';">Zurück</button> <br/>
+<div class="row">
+        <div class="column">
+                <h2>Fehler!</h2>
+                <p>{{ error }}</p>
+        </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>{{ search_title }}</h3>
+<button class="button button-outline" onclick="window.history.back();">Zurück</button> <br/>
+<div class="row">
+        <div class="column">
+                {% for search_item in search_items: %}
+                        <div class="row" style="padding-bottom: 10px;">
+                                <table>
+                                        <thead>
+                                                <tr>
+                                                        <th><a href="{{ search_item.url }}">{{ search_item.get_search_query() }}</a></th>
+                                                        <th>&nbsp;</th>
+                                                </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <th>90ste Perzentile</th><td>{{ search_item.get_percentile(90) }} €</td>
+                                                </tr>
+                                                <tr>
+                                                        <th>50ste Perzentile</th><td>{{ search_item.get_percentile(50) }} €</td>
+                                                </tr>
+                                                <tr>
+                                                        <th>10ste Perzentile</th><td>{{ search_item.get_percentile(10) }} €</td>
+                                                </tr>
+                                                <tr>
+                                                        <th>Anzahl Ergebnisse:</th><td>{{ search_item.get_quantity() }}</td>
+                                                </tr>
+                                                <tr>
+                                                        <th>Anzahl ignorierter Artikel</th><td>{{search_item.get_quantity_ignored() }}</td>
+                                                </tr>
+                                        </tbody>
+                                </table>
+                        </div>
+                {% endfor %}
+        </div>
+<div class="column"><img src={{ url}} alt="Chart"></div>
+</div>
+{% endblock %}

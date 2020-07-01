@@ -1,0 +1,13 @@
+
+*.pyc
+build
+lib
+include
+image
+dist
+etc
+bin
+app/__pycache__
+Dockerfile
+pricetracker.egg-info
+share

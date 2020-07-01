@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="/result">
+    <h2>Eingaben</h2>
+    <label for="url1">Url1:</label>
+    <input type="text" id="url1" name="url1" value="{{ url1 }}"><br>
+    <label for="url2">Url2:</label>
+    <input type="text" id="url2" name="url2" value="{{ url2 }}"><br><br>
+    <label for="keywords">Keywords zum Ausschließen:</label>
+    <input type="text" id="keywords" name="keywords" value="{{ keywords }}"><br><br>
+    <input type="hidden" id="source" name="source" value="form_input">
+    <button type="submit">Senden</button>
+</form>
+</div>
+{% endblock %}

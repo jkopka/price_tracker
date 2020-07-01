@@ -1,0 +1,4 @@
+2020-06-22 22:31:46,039 URL: https://www.ebay-kleinanzeigen.de/s-freizeit-nachbarschaft/ultraleichtflugzeug/k0c185
+2020-06-22 22:31:46,537 127.0.0.1 - - [22/Jun/2020 22:31:46] "GET /result?url1=https%3A%2F%2Fwww.ebay-kleinanzeigen.de%2Fs-freizeit-nachbarschaft%2Fultraleichtflugzeug%2Fk0c185&url2=&keywords=Aufkleber+Suche+Für+gutschein+autoaufkleber+buch+ladegerät+betriebsstundenzähler+frisbee+Sicherheitsgurt+ICAO-Karte+modelbau+starterkit+einstellplatz+rundflug+kanada+wasserkühler+zündkerzenkontrollbox&source=form_input HTTP/1.1" 200 -
+2020-06-22 22:31:46,575 127.0.0.1 - - [22/Jun/2020 22:31:46] "GET /static/css/milligram.min.css HTTP/1.1" 304 -
+2020-06-22 22:31:53,655  * Detected change in '/Users/jonathan/Documents/Programmieren/python/price_tracker/app/models.py', reloading
