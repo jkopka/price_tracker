@@ -1,14 +1,8 @@
 from setuptools import setup
 
 setup(
-    name='pricetracker',
-    packages=['pricetracker'],
+    name="pricetracker",
+    packages=["pricetracker"],
     include_package_data=True,
-    install_requires=[
-        'flask',
-        'bs4',
-        'tqdm',
-        'requests',
-        'matplotlib'
-    ],
+    install_requires=["flask", "bs4", "tqdm", "requests", "matplotlib"],
 )

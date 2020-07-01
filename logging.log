@@ -2,3 +2,21 @@
 2020-06-22 22:31:46,537 127.0.0.1 - - [22/Jun/2020 22:31:46] "GET /result?url1=https%3A%2F%2Fwww.ebay-kleinanzeigen.de%2Fs-freizeit-nachbarschaft%2Fultraleichtflugzeug%2Fk0c185&url2=&keywords=Aufkleber+Suche+Für+gutschein+autoaufkleber+buch+ladegerät+betriebsstundenzähler+frisbee+Sicherheitsgurt+ICAO-Karte+modelbau+starterkit+einstellplatz+rundflug+kanada+wasserkühler+zündkerzenkontrollbox&source=form_input HTTP/1.1" 200 -
 2020-06-22 22:31:46,575 127.0.0.1 - - [22/Jun/2020 22:31:46] "GET /static/css/milligram.min.css HTTP/1.1" 304 -
 2020-06-22 22:31:53,655  * Detected change in '/Users/jonathan/Documents/Programmieren/python/price_tracker/app/models.py', reloading
+2020-07-01 12:43:10,654 URL: https://www.ebay-kleinanzeigen.de/s-ultraleichtflugzeug/k0
+2020-07-01 12:43:26,726 127.0.0.1 - - [01/Jul/2020 12:43:26] "GET /result?url1=https%3A%2F%2Fwww.ebay-kleinanzeigen.de%2Fs-ultraleichtflugzeug%2Fk0&url2=&keywords=&source=form_input HTTP/1.1" 200 -
+2020-07-01 12:44:15,532  * Detected change in '/Users/jonathan/Documents/Programmieren/python/price_tracker/app/models.py', reloading
+2020-07-01 12:44:23,042 URL: https://www.ebay-kleinanzeigen.de/s-ultraleichtflugzeug/k0
+2020-07-01 12:44:23,162 127.0.0.1 - - [01/Jul/2020 12:44:23] "GET /result?url1=https%3A%2F%2Fwww.ebay-kleinanzeigen.de%2Fs-ultraleichtflugzeug%2Fk0&url2=&keywords=&source=form_input HTTP/1.1" 200 -
+2020-07-01 12:44:23,253 127.0.0.1 - - [01/Jul/2020 12:44:23] "GET /static/css/milligram.min.css HTTP/1.1" 304 -
+2020-07-01 12:44:28,415 URL: https://www.ebay-kleinanzeigen.de/s-ultraleichtflugzeug/k0
+2020-07-01 12:44:28,501 127.0.0.1 - - [01/Jul/2020 12:44:28] "GET /result?url1=https%3A%2F%2Fwww.ebay-kleinanzeigen.de%2Fs-ultraleichtflugzeug%2Fk0&url2=&keywords=&source=form_input HTTP/1.1" 200 -
+2020-07-01 12:44:28,552 127.0.0.1 - - [01/Jul/2020 12:44:28] "GET /static/css/milligram.min.css HTTP/1.1" 304 -
+2020-07-01 12:44:41,438 127.0.0.1 - - [01/Jul/2020 12:44:41] "GET / HTTP/1.1" 200 -
+2020-07-01 12:44:43,417 URL: https://www.ebay.de/sch/i.html?_from=R40&_trksid=m570.l1313&_nkw=ultraleichtflugzeug&_sacat=0
+2020-07-01 12:44:46,034 127.0.0.1 - - [01/Jul/2020 12:44:46] "GET /result?url1=https%3A%2F%2Fwww.ebay.de%2Fsch%2Fi.html%3F_from%3DR40%26_trksid%3Dm570.l1313%26_nkw%3Dultraleichtflugzeug%26_sacat%3D0&url2=&keywords=&source=form_input HTTP/1.1" 200 -
+2020-07-01 12:44:56,262 URL: https://www.ebay.de/sch/i.html?_from=R40&_trksid=m570.l1313&_nkw=ultraleichtflugzeug&_sacat=0
+2020-07-01 12:44:57,674 127.0.0.1 - - [01/Jul/2020 12:44:57] "GET /result?url1=https%3A%2F%2Fwww.ebay.de%2Fsch%2Fi.html%3F_from%3DR40%26_trksid%3Dm570.l1313%26_nkw%3Dultraleichtflugzeug%26_sacat%3D0&url2=&keywords=aufkleber&source=form_input HTTP/1.1" 200 -
+2020-07-01 12:45:20,892 URL: https://www.ebay.de/sch/i.html?_from=R40&_trksid=m570.l1313&_nkw=ultraleichtflugzeug&_sacat=0
+2020-07-01 12:45:22,249 127.0.0.1 - - [01/Jul/2020 12:45:22] "GET /result?url1=https%3A%2F%2Fwww.ebay.de%2Fsch%2Fi.html%3F_from%3DR40%26_trksid%3Dm570.l1313%26_nkw%3Dultraleichtflugzeug%26_sacat%3D0&url2=&keywords=Aufkleber+Suche+Für+gutschein+autoaufkleber+buch+ladegerät+betriebsstundenzähler+frisbee+Sicherheitsgurt+ICAO-Karte+modelbau&source=form_input HTTP/1.1" 200 -
+2020-07-01 12:45:42,115 URL: https://www.ebay-kleinanzeigen.de/s-ultraleichtflugzeug/k0
+2020-07-01 12:45:42,204 127.0.0.1 - - [01/Jul/2020 12:45:42] "GET /result?url1=https%3A%2F%2Fwww.ebay-kleinanzeigen.de%2Fs-ultraleichtflugzeug%2Fk0&url2=&keywords=Aufkleber+Suche+Für+gutschein+autoaufkleber+buch+ladegerät+betriebsstundenzähler+frisbee+Sicherheitsgurt+ICAO-Karte+modelbau&source=form_input HTTP/1.1" 200 -
