@@ -344,7 +344,7 @@ class Plattform:
         '''
         Original Preis übergeben und verschiedene Optionen filtern. False wird zurückgegeben, wenn der Preis nicht eindeutig ist.
         '''
-        if price == "VB" or price.strip() == "" or "bis" in price:
+        if price == "VB" or price.strip() == "" or "bis" in price or "Zu verschenken" in price:
                 return False
 
         if 'UVP' in price:
