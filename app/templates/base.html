@@ -4,10 +4,25 @@
         <title>{{ title }}</title>
         <meta name="viewport" content="width=device-width,initial-scale=1,minimal-ui">
         <link rel="stylesheet" href="static/css/milligram.min.css">
+        <link rel="stylesheet" href="static/css/light-mode.css" id="theme" />
+    <script>
+      function switchSheet() {
+      let theme = document.getElementById("theme");
+
+      if (theme.getAttribute("href") == "static/css/light-mode.css") {
+        theme.href = "static/css/dark-mode.css";
+      } else {
+        theme.href = "static/css/light-mode.css";
+      }
+}
+    </script>
     </head>
 <body>
     
         <div class="container">
+            <div>
+                <button class="button button-outline" onclick="switchSheet()">Switch</button>
+              </div>
                 <h1>Price Tracker</h1>
             
         {% block content %}{% endblock %}

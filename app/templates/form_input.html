@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
+<ul>
+    <li>Suche bei eBay Kleinanzeigen oder ebay.de zusammenstellen (je genauer, desto präziser das Ergebnis)</li>
+    <li>Den Link kopieren und im Formular einfügen</li>
+    <li>Um Schlüsselwörter bei der Suche auszuschließen, können diese unter Keywords zum Ausschließen eingetragen werden (SPACE zum seperieren)</li>
+    <li>SENDEN drücken.</li>
+</ul>
 <form action="/result">
     <h2>Eingaben</h2>
     <label for="url1">Url1:</label>
-    <input type="text" id="url1" name="url1" value="{{ url1 }}"><br>
+    <input class="url" type="url" id="url1" name="url1" value="{{ url1 }}"><br>
     <label for="url2">Url2:</label>
-    <input type="text" id="url2" name="url2" value="{{ url2 }}"><br><br>
+    <input type="url" id="url2" name="url2" value="{{ url2 }}"><br><br>
     <label for="keywords">Keywords zum Ausschließen:</label>
     <input type="text" id="keywords" name="keywords" value="{{ keywords }}"><br><br>
     <input type="hidden" id="source" name="source" value="form_input">
