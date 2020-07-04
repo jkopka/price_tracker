@@ -211,17 +211,14 @@ class Plattform:
 
             # Preis holen
             price = element.select_one(".aditem-details").strong.text.strip()
-            if price == "VB" or price == "Zu verschenken" or price.strip() == "":
+            
+            # Preis säubern
+            price = self.clean_price( price)
+            if price == False:
                 search_item.quantity_ignored += 1
                 continue
-            price = float(
-                price.strip()
-                .replace(" €", "")
-                .strip()
-                .replace(".", "")
-                .replace(" VB", "")
-            )
-            print(" # ", title, price)
+            
+            # print(" # ", title, price)
             search_item.quantity += 1
             all_prices.append(price)
 
@@ -306,17 +303,13 @@ class Plattform:
 
             # Preis holen
             price = element.select_one(".lvprice").text.strip()
-            if price == "VB" or price.strip() == "" or "bis" in price:
+            
+            # Preis säubern
+            price = self.clean_price( price)
+            if price == False:
                 search_item.quantity_ignored += 1
                 continue
-            price = float(
-                price.replace(" €", "")
-                .replace(".", "")
-                .replace("EUR", "")
-                .replace(",", ".")
-                .replace(" VB", "")
-                .strip()
-            )
+
             # print(' # ', title, price)
             search_item.quantity += 1
             all_prices.append(price)
@@ -346,6 +339,26 @@ class Plattform:
         search_item.searched = True
         self.searched = True
         return True
+
+    def clean_price( self, price):
+        '''
+        Original Preis übergeben und verschiedene Optionen filtern. False wird zurückgegeben, wenn der Preis nicht eindeutig ist.
+        '''
+        if price == "VB" or price.strip() == "" or "bis" in price:
+                return False
+
+        if 'UVP' in price:
+            price = price[:price.index('UVP')].strip()
+        
+        price = float(
+                price.replace(" €", "")
+                .replace(".", "")
+                .replace("EUR", "")
+                .replace(",", ".")
+                .replace(" VB", "")
+                .strip()
+            )
+        return price
 
     def get_error(self):
         """
