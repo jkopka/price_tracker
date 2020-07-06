@@ -357,6 +357,7 @@ class Plattform:
         try:
             if ',' in price:
                 price = price.replace('.','')
+            
             price = float(
                     price.replace(" €", "")
                     .replace("EUR", "")
