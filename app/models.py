@@ -354,14 +354,18 @@ class Plattform:
             if string_cut in price:
                 price = price[:price.index(string_cut)].strip()
         
-        price = float(
-                price.replace(" €", "")
-                .replace(".", "")
-                .replace("EUR", "")
-                .replace(",", ".")
-                .replace(" VB", "")
-                .strip()
-            )
+        try:
+            if ',' in price:
+                price = price.replace('.','')
+            price = float(
+                    price.replace(" €", "")
+                    .replace("EUR", "")
+                    .replace(',','.')
+                    .replace(" VB", "")
+                    .strip()
+                )
+        except:
+            return False
         return price
 
     def get_error(self):
