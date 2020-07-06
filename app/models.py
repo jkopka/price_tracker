@@ -344,11 +344,15 @@ class Plattform:
         '''
         Original Preis übergeben und verschiedene Optionen filtern. False wird zurückgegeben, wenn der Preis nicht eindeutig ist.
         '''
+        cleaning_strings_cut = ('UVP','(','Bisher')
+
+
         if price == "VB" or price.strip() == "" or "bis" in price or "Zu verschenken" in price:
                 return False
 
-        if 'UVP' in price:
-            price = price[:price.index('UVP')].strip()
+        for string_cut in cleaning_strings_cut:
+            if string_cut in price:
+                price = price[:price.index(string_cut)].strip()
         
         price = float(
                 price.replace(" €", "")
