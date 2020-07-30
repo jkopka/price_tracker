@@ -8,8 +8,19 @@ import matplotlib.pyplot as plt
 from flask import Markup
 from urllib.parse import urlparse
 import logging
+from datetime import datetime
 
 import time
+
+# Objekt für einzelne Anzeigen
+class Article:
+    def __init__(self, id, title, price, url, date_found, description = ''):
+        self.id = id
+        self.title = title
+        self.price = price
+        self.url = url
+        self.date_found = date_found
+        self.description = description
 
 # Objekt für einzelne Suchen
 class SearchItem:
@@ -22,6 +33,7 @@ class SearchItem:
         self.url_next_page = ""
         self.searched = False
         self.error = ""
+        self.articles = []
 
     def get_search_query(self):
         return self.search_query
@@ -71,9 +83,7 @@ class Plattform:
             # Für jeden übergebenen Link wird ein SearchItem angelegt. Hier wird auch direkt gecheckt,
             # ob die URL valid und ob es sich um die mobile Website handelt.
             if self.uri_validator(url) == True:
-                print("--------")
                 logging.info("URL: " + url)
-                print("--------")
                 search_items.append(SearchItem(self.get_web_version(url)))
         self.search_items = search_items
 
@@ -144,10 +154,8 @@ class Plattform:
                 result.append(self.fetch_page_ebay_de(search_item))
             else:
                 print("Link unbekannt! -> ", search_item.url)
-            # Momentan noch nicht implementiert!
-            # elif search_item.site == 'ebay.de':
-            # result.append(self.fetch_page_ebay_de(search_item))
-            # print(result)
+                result.append(self.fetch_page_ebay_kleinanzeigen(search_item))
+            print(result)
             for res in result:
                 if res == False:
                     return False
@@ -162,18 +170,19 @@ class Plattform:
         """
         keywords = self.keywords
 
+        date_found = datetime.now()
         # Artikel holen
-        article = self.fetch_url(search_item.url)
-        if article == False:
+        articles = self.fetch_url(search_item.url)
+        if articles == False:
             return False
 
-        doc = BeautifulSoup(article.text.replace("&#8203", ""), "html.parser")
+        doc = BeautifulSoup(articles.text.replace("&#8203", ""), "html.parser")
         doc_search_query = doc.find(id="site-search-query")
 
         # Falls der Titel 'Security Violation', mit False zurück
-        if article.status_code == 503:
+        if articles.status_code == 503:
             search_item.error = doc.select_one("title").text.strip()
-            print("Error-Code: ", article.status_code)
+            print("Error-Code: ", articles.status_code)
             # print(doc)
             return False
         if doc.select_one("title").text.strip() == "Security Violation (503)":
@@ -192,8 +201,11 @@ class Plattform:
 
         all_prices = []
         for element in doc.select(".aditem"):
+            # Artikel-ID holen
+            article_id = element.get('data-adid')
+
             # Link auf Artikel
-            # link = element.select_one('.ellipsis').get('href')
+            link = element.select_one('.ellipsis').get('href')
 
             # Titel holen
             title = element.select_one(".ellipsis").text.strip().lower()
@@ -221,6 +233,8 @@ class Plattform:
             # print(" # ", title, price)
             search_item.quantity += 1
             all_prices.append(price)
+
+            # search_item.arcticles.append(Article(article_id, title, price, link, date_found, descr))
 
         # Nächste Seite aufrufen
         next_page = doc.select_one(".pagination-next")
@@ -256,17 +270,17 @@ class Plattform:
         """
         keywords = self.keywords
         # Artikel holen
-        article = self.fetch_url(search_item.url)
-        if article == False:
+        articles = self.fetch_url(search_item.url)
+        if articles == False:
             return False
 
-        doc = BeautifulSoup(article.text.replace("&#8203", ""), "html.parser")
+        doc = BeautifulSoup(articles.text.replace("&#8203", ""), "html.parser")
         doc_search_query = doc.find(id="gh-ac")
 
         # Falls der Titel 'Security Violation', mit False zurück
-        if article.status_code == 503:
+        if articles.status_code == 503:
             search_item.error = doc.select_one("title").text.strip()
-            print("Error-Code: ", article.status_code)
+            print("Error-Code: ", articles.status_code)
             # print(doc)
             return False
         if doc.select_one("title").text.strip() == "Security Violation (503)":
@@ -355,12 +369,11 @@ class Plattform:
                 price = price[:price.index(string_cut)].strip()
         
         try:
-            if ',' in price:
-                price = price.replace('.','')
-            
+           
             price = float(
                     price.replace(" €", "")
                     .replace("EUR", "")
+                    .replace(".","")
                     .replace(',','.')
                     .replace(" VB", "")
                     .strip()
