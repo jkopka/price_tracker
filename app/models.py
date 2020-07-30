@@ -355,7 +355,7 @@ class Plattform:
                 price = price[:price.index(string_cut)].strip()
         
         try:
-            if ',' in price:
+            if '.' in price:
                 price = price.replace('.','')
             
             price = float(
